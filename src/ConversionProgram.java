@@ -8,10 +8,8 @@ public class ConversionProgram {
         Scanner menuInput = new Scanner(System.in);
 
         System.out.println("This program converts distance in meters to Kilometers, inches and feet.");
-
         System.out.println("Enter a distance in meters:");
         userInput = keyboard.nextDouble();
-
         boolean flag = true;
         while (flag) {
             menu();
