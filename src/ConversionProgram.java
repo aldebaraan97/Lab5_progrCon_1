@@ -3,24 +3,28 @@ import java.util.Scanner;
 public class ConversionProgram {
     public static void main(String[] args) {
         double userInput;
+        int menuOption;
+        Scanner keyboard = new Scanner(System.in);
+        Scanner menuInput = new Scanner(System.in);
+
         System.out.println("This program converts distance in meters to Kilometers, inches and feet.");
 
         System.out.println("Enter a distance in meters:");
-        userInput = userInput();
+        userInput = keyboard.nextDouble();
 
         boolean flag = true;
         while (flag) {
             menu();
-            userInput = userInput();
-            if (userInput < 0 || userInput == 4) {
+            menuOption = menuInput.nextInt();
+
+            if (menuOption < 0 || menuOption == 4) {
                 flag = false;
             }
             else {
-                switch ((int)userInput) {
+                switch (menuOption) {
                     case 1 -> showKilometers(userInput);
                     case 2 -> showInches(userInput);
                     case 3 -> showFeet(userInput);
-                    case 4 -> quit();
                     default -> System.out.println("Invalid option.");
                 };
             }
@@ -56,7 +60,7 @@ public class ConversionProgram {
         System.out.println("1. Convert to kilometers." +
                 "\n2. Convert to inches." +
                 "\n3. Convert to feet." +
-                "\n4. Quit.");
+                "\n4. Quit.\n");
     }
 
     // TODO: quit(int quit)
