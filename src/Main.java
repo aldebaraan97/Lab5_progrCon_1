@@ -8,18 +8,18 @@ public class Main {
         String sysColor;
         String userColor;
         System.out.println("This program tests your Extrasensory Perception (ESP).");
-        System.out.println("Enter 10 colors and let's see how many you guess right ;)");
-        while (guess <= 10){
+        System.out.println("Enter 10 colors and let's see how many colors you guess right ;)");
+        while (guess <= 9){
             sysColor = color();
             userColor = userColor();
 
             if (isEqual(userColor, sysColor)) {
                 correctGuess++;
+                System.out.println("Your intuition was correct! " + sysColor + "\nYou have guessed " +
+                        correctGuess + " colors correctly");
             }
             guess++;
         }
-
-        System.out.println(correctGuess);
     }
 
     public static int colorRandomizer() {
