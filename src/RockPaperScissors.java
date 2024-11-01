@@ -11,9 +11,7 @@ public class RockPaperScissors {
             case 2 -> "ROCK";
             default -> "";
         };
-
         System.out.println("Your input: " + userElection + "\nSystem election: " + sysElectionString);
-
         System.out.println("The winner is: " + winner(sysElection, userElection));
     }
 
