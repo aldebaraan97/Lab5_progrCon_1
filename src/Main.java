@@ -2,20 +2,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         int guess = 0;
         int correctGuess = 0;
         String sysColor;
         String userColor;
+
         System.out.println("This program tests your Extrasensory Perception (ESP).");
         System.out.println("Enter 10 colors and let's see how many colors you guess right ;)");
+
         while (guess <= 9){
-            sysColor = color();
+            sysColor = sysColor();
             userColor = userColor();
 
             if (isEqual(userColor, sysColor)) {
                 correctGuess++;
-                System.out.println("Your intuition was correct! " + sysColor + "\nYou have guessed " +
+                System.out.println("Your intuition was correct! The random color is " + sysColor + "\nYou have guessed " +
                         correctGuess + " colors correctly");
             }
             guess++;
@@ -26,14 +27,14 @@ public class Main {
         return (int)(Math.random() * 4);
     }
 
-    public static String color(){
+    public static String sysColor(){
         String COLOR;
         COLOR = switch (colorRandomizer()) {
             case 0 -> "RED";
             case 1 -> "GREEN";
             case 2 -> "ORANGE";
             case 3 -> "YELLOW";
-            default -> "";
+            default -> "Not a valid color";
         };
         return COLOR;
     }
