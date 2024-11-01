@@ -31,13 +31,6 @@ public class ConversionProgram {
         }
     }
 
-    public static double userInput() {
-        Scanner input = new Scanner(System.in);
-        double distance;
-        distance = input.nextDouble();
-        return distance;
-    }
-
     public static void showKilometers(double meters) {
         System.out.println(meters * 0.001);
     }
@@ -50,10 +43,6 @@ public class ConversionProgram {
         System.out.println(meters * 3.281);
     }
 
-    public static void quit() {
-
-    }
-
     public static void menu() {
         System.out.println("Enter 4 at any moment to quit the program.");
         System.out.println("Type the number of the option to execute function:");
@@ -62,6 +51,4 @@ public class ConversionProgram {
                 "\n3. Convert to feet." +
                 "\n4. Quit.\n");
     }
-
-    // TODO: quit(int quit)
 }
