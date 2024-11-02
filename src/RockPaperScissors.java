@@ -2,21 +2,22 @@ import java.util.Scanner;
 
 public class RockPaperScissors {
     public static void main(String[] arg) {
-        int sysElection = sysElection();
         String userElection = userElection();
+        String sysElection = sysElection();
 
-        String sysElectionString = switch (sysElection) {
+        System.out.println("Your input: " + userElection + "\nSystem election: " + sysElection);
+        System.out.println("The winner is: " + winner(sysElection, userElection));
+    }
+
+    public static String sysElection(){
+        String sysElection;
+        sysElection = switch ((int) (Math.random() * 3)) {
             case 0 -> "PAPER";
             case 1 -> "SCISSORS";
             case 2 -> "ROCK";
             default -> "";
         };
-        System.out.println("Your input: " + userElection + "\nSystem election: " + sysElectionString);
-        System.out.println("The winner is: " + winner(sysElection, userElection));
-    }
-
-    public static int sysElection(){
-        return (int)(Math.random() * 3);
+        return sysElection;
     }
 
     public static String userElection() {
@@ -24,20 +25,19 @@ public class RockPaperScissors {
         String input;
         System.out.println("Enter election:");
         input = keyboard.nextLine();
-
         return input;
     }
 
-    public static String winner(int sysElection, String userElection) {
+    public static String winner(String sysElection, String userElection) {
         String winner;
         winner = switch (sysElection){
-            case 0 -> paperBeats(userElection)?
+            case "PAPER" -> paperBeats(userElection)?
                     "Computer" : userElection.equalsIgnoreCase("PAPER")?
             "Tie" : "User";
-            case 1 -> scissorsBeats(userElection)?
+            case "SCISSORS" -> scissorsBeats(userElection)?
                     "Computer ": userElection.equalsIgnoreCase("SCISSORS")?
             "Tie" : "User";
-            case 2 -> rockBeats(userElection)?
+            case "ROCK" -> rockBeats(userElection)?
                     "Computer" : userElection.equalsIgnoreCase("ROCK")?
             "Tie" : "User";
             default -> "Tie";
