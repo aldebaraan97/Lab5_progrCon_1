@@ -56,8 +56,4 @@ public class RockPaperScissors {
     public static boolean rockBeats(String RPS) {
         return RPS.equalsIgnoreCase("SCISSORS");
     }
-
-    public static String tie(String sysElection, String userElection) {
-        return "Tie";
-    }
 }
