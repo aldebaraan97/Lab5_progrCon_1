@@ -8,33 +8,33 @@ public class Main {
         String userColor;
 
         System.out.println("This program tests your Extrasensory Perception (ESP).");
+        System.out.println("Color options: RED, GREEN, ORANGE, YELLOW.");
         System.out.println("Enter 10 colors and let's see how many colors you guess right ;)");
 
         while (guess <= 9){
             sysColor = sysColor();
             userColor = userColor();
 
-            if (isEqual(userColor, sysColor)) {
+            if (!isEqual(userColor, sysColor)) {
+                System.out.println("Incorrect. The random color is " + sysColor);
+            }
+            else{
                 correctGuess++;
-                System.out.println("Your intuition was correct! The random color is " + sysColor + "\nYou have guessed " +
-                        correctGuess + " colors correctly");
+                System.out.println("Your intuition was correct! The random color is " + sysColor +
+                        "\nYou have guessed " + correctGuess + " colors correctly");
             }
             guess++;
         }
     }
 
-    public static int colorRandomizer() {
-        return (int)(Math.random() * 4);
-    }
-
     public static String sysColor(){
         String COLOR;
-        COLOR = switch (colorRandomizer()) {
+        COLOR = switch ((int)(Math.random() * 4)) {
             case 0 -> "RED";
             case 1 -> "GREEN";
             case 2 -> "ORANGE";
             case 3 -> "YELLOW";
-            default -> "Not a valid color";
+            default -> "";
         };
         return COLOR;
     }
@@ -45,7 +45,6 @@ public class Main {
 
         System.out.println("Enter a color: ");
         userInput = keyboard.nextLine();
-
         return userInput;
     }
 
