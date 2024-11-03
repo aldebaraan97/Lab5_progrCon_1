@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class RockPaperScissors {
     public static void main(String[] arg) {
         System.out.println("""
-                Program to play ROCK, PAPER, SCISSORS game against the computer.\n
-                Enter only 'ROCK', 'PAPER' or 'SCISSORS' (case insensitive).\n
+                Program to play ROCK, PAPER, SCISSORS game against the computer.
+                Enter only 'ROCK', 'PAPER' or 'SCISSORS' (case insensitive).
                 Any other input will assign the user a random choice.""");
         String userElection = userElection();
         String sysElection = randomElection();
