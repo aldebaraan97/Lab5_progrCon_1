@@ -2,9 +2,12 @@ import java.util.Scanner;
 
 public class RockPaperScissors {
     public static void main(String[] arg) {
+        System.out.println("""
+                Program to play ROCK, PAPER, SCISSORS game against the computer.\n
+                Enter only 'ROCK', 'PAPER' or 'SCISSORS' (case insensitive).\n
+                Any other input will assign the user a random choice.""");
         String userElection = userElection();
         String sysElection = randomElection();
-
         System.out.println("Your input: " + userElection + "\nSystem election: " + sysElection);
         System.out.println("The winner is: " + winner(sysElection, userElection));
     }
@@ -23,21 +26,16 @@ public class RockPaperScissors {
     public static String userElection() {
         Scanner keyboard = new Scanner(System.in);
         String input;
-        String userElection = "";
-        boolean flag = true;
+        String userElection;
         System.out.println("Enter election:");
 
-        while (flag){
-            input = keyboard.nextLine();
-            if (input.compareToIgnoreCase("PAPER") != 0 ||
-                    input.compareToIgnoreCase("ROCK") != 0 ||
-                    input.compareToIgnoreCase("SCISSORS") != 0) {
-                System.out.println("Invalid input. Enter paper, rock or scissors (case insensitive).");
-                System.out.println("Assigning random value to user.");
-                userElection = randomElection();
-                flag = false;
-            }
-        }
+        input = keyboard.nextLine();
+        userElection = switch (input.toUpperCase()) {
+            case "PAPER" -> "PAPER";
+            case "ROCK" -> "ROCK";
+            case "SCISSORS" -> "SCISSORS";
+            default -> randomElection();
+        };
         return userElection;
     }
 
